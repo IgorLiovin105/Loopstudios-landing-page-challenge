@@ -17,6 +17,14 @@ $ff-light: 'Josefin Sans', sans-serif;
 $ff-regular: 'Alata', sans-serif;
 $fz: 15px;
 
+body._lock {
+    overflow: hidden;
+}
+
+h2 {
+    font-family: $ff-light;
+}
+
 .wrapper {
     width: 100%;
     min-height: 100vh;
@@ -26,12 +34,13 @@ $fz: 15px;
 
 .main {
     flex: 1 0 auto;
+    background: $white;
 }
 
 .header {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     z-index: 10;
@@ -153,11 +162,11 @@ $fz: 15px;
 
 .first__screen {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: url("../img/desktop/image-hero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     display: grid;
     grid-template: 1fr / 1fr minmax(auto, 1100px) 1fr;
     align-items: center;
@@ -180,5 +189,89 @@ $fz: 15px;
             padding: 10px;
             margin-top: 70px;
         }
+    }
+}
+
+.interactive {
+    width: 100%;
+    margin-top: 100px;
+    display: grid;
+    grid-template: 1fr / 1fr minmax(auto, 1100px)  1fr;
+    align-items: center;
+    padding: 0 15px;
+    &__items {
+        grid-column: 2 / 3;
+        display: grid;
+        grid-template: 1fr / 1fr 1fr;
+        align-items: end;
+    }
+    &__text {
+        background: $white;
+        padding: 80px 0 0 80px;
+        margin-left: -120px;
+        & h2 {
+            margin-bottom: 20px;
+        }
+        & p {
+            font-size: $fz;
+            font-family: $ff-regular;
+            opacity: 0.5;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .interactive {
+        margin-top: 50px;
+        &__items {
+            display: block;
+        }
+        & img {
+            width: 100%;
+        }
+        &__text {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            background: none;
+            text-align: center;
+            & h2 {
+                margin: 20px 0 10px 0;
+            }
+        }
+    }
+}
+
+.creations {
+    width: 100%;
+    margin-top: 100px;
+    display: grid;
+    grid-template: 1fr / 1fr minmax(auto, 1100px)  1fr;
+    &__items {
+        grid-column: 2 / 3;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    &__title {
+        grid-column: 1 / 3;
+        margin-bottom: 60px;
+    }
+    &__btn {
+        grid-column: 3 / 5;
+        justify-self: end;
+        align-self: start;
+        padding: 8px 40px 3px 40px;
+        text-decoration: none;
+        font-family: $ff-light;
+        font-size: $fz;
+        color: $black;
+        border: 2px solid rgba($black, 0.5);
+        border-radius: 2px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+            background: $black;
+            color: $white;
+        } 
     }
 }
